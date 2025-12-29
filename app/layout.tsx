@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Threat Intelligence Platform - SOC Dashboard",
   description: "Real-time threat intelligence monitoring and analysis platform for Security Operations Centers",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

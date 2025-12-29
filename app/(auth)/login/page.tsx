@@ -47,7 +47,8 @@ export default function LoginPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-blue/20 rounded-2xl mb-4 glow">
-            <Shield className="w-8 h-8 text-accent-blue" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://www.codextech.org/favicon.svg" alt="Logo" className="w-10 h-10" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Threat Intelligence Platform</h1>
           <p className="text-gray-400">Sign in to access the SOC dashboard</p>

@@ -29,9 +29,13 @@ export function Header({ user }: HeaderProps) {
               </p>
               <p className="text-xs text-gray-400">{user.role}</p>
             </div>
-            <div className="w-10 h-10 bg-accent-blue/20 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-accent-blue/20 rounded-full flex items-center justify-center overflow-hidden">
               {user.image ? (
-                <img src={user.image} alt={user.username} className="w-full h-full rounded-full object-cover" />
+                <img 
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}/uploads/${user.image}`} 
+                  alt={user.username} 
+                  className="w-full h-full rounded-full object-cover" 
+                />
               ) : (
                 <UserIcon className="w-5 h-5 text-accent-blue" />
               )}

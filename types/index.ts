@@ -114,6 +114,55 @@ export interface CheckAuthResponse {
 }
 
 // ============================================
+// User Management Types
+// ============================================
+
+export interface UpdateUserRequest {
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  countryCode: string;
+  dialCode: string;
+  phone: string;
+  dateOfBirth: string;
+  gender: "male" | "female";
+}
+
+export interface UpdateUserResponse {
+  message_en: string;
+  message_ar: string;
+}
+
+export interface UpdateImageRequest {
+  username: string;
+  image: File;
+}
+
+export interface UpdateImageResponse {
+  message_en: string;
+  message_ar: string;
+}
+
+export interface DeleteUserRequest {
+  username: string;
+}
+
+export interface DeleteUserResponse {
+  message: string;
+}
+
+export interface GetUserRequest {
+  username: string;
+}
+
+export interface GetUserResponse {
+  message_en: string;
+  message_ar: string;
+  userData: User;
+}
+
+// ============================================
 // Threat Intelligence Types
 // ============================================
 
@@ -137,9 +186,7 @@ export interface SearchIOCResponse {
 }
 
 export interface FetchIOCRequest {
-  id?: number;
-  value?: string;
-  type?: IOCType;
+  id: number;
 }
 
 export interface FetchIOCResponse {

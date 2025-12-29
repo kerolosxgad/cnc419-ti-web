@@ -5,9 +5,16 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "deltati-api.codextech.org",
+        hostname: "cnc419-api.codextech.org",
+      },
+      {
+        protocol: "https",
+        hostname: "www.codextech.org",
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 

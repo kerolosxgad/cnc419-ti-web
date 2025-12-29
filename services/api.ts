@@ -24,8 +24,9 @@ apiClient.interceptors.request.use(
     console.log("🚀 API Request:", config.method?.toUpperCase(), config.url);
     console.log("🚀 Uses API Key:", usesApiKey);
     
-    // Ensure Content-Type is application/json
-    if (config.headers) {
+    // Set default Content-Type to application/json if not already set
+    // This allows multipart/form-data and other content types to work
+    if (config.headers && !config.headers["Content-Type"]) {
       config.headers["Content-Type"] = "application/json";
     }
     

@@ -21,7 +21,7 @@ const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "IOC Search", href: "/iocs", icon: Search },
   { name: "Reports", href: "/reports", icon: FileText },
-  { name: "Threat Intel", href: "/threats", icon: AlertTriangle },
+  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export function Sidebar() {
@@ -54,7 +54,8 @@ export function Sidebar() {
           {!collapsed && (
             <div className="flex items-center gap-2">
               <div className="p-2 bg-accent-blue/20 rounded-lg glow">
-                <Shield className="w-5 h-5 text-accent-blue" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://www.codextech.org/favicon.svg" alt="Logo" className="w-5 h-5" />
               </div>
               <span className="font-bold text-white">ThreatIntel</span>
             </div>

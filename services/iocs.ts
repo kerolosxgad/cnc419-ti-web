@@ -22,11 +22,11 @@ export async function searchIOCs(params: SearchIOCRequest = {}): Promise<SearchI
 }
 
 /**
- * Fetch specific IOC by ID or value
+ * Fetch specific IOC by ID
  */
-export async function fetchIOC(params: FetchIOCRequest): Promise<FetchIOCResponse> {
+export async function fetchIOC(id: number): Promise<FetchIOCResponse> {
   try {
-    const response = await apiClient.post<FetchIOCResponse>("/threat-intel/fetch", params);
+    const response = await apiClient.post<FetchIOCResponse>("/threat-intel/ioc", { id });
     return response.data;
   } catch (error) {
     throw new Error(handleAPIError(error));
