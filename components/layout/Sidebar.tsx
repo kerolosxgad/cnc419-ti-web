@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils/helpers";
@@ -15,18 +15,25 @@ import {
   X,
   AlertTriangle,
 } from "lucide-react";
-import { logout } from "@/services/auth";
-
-const navigation = [
-  { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { name: "IOC Search", href: "/iocs", icon: Search },
-  { name: "Reports", href: "/reports", icon: FileText },
-  { name: "Settings", href: "/settings", icon: Settings },
-];
+import { logout, getCurrentUser } from "@/services/auth";
+import { User } from "@/types";
 
 export function Sidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    setUser(getCurrentUser());
+  }, []);
+
+  const navigation = [
+    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+    { name: "IOC Search", href: "/iocs", icon: Search },
+    { name: "Reports", href: "/reports", icon: FileText },
+    ...(user?.role === "admin" ? [{ name: "Admin", href: "/admin", icon: Shield }] : []),
+    { name: "Settings", href: "/settings", icon: Settings },
+  ];
 
   const handleLogout = async () => {
     await logout();

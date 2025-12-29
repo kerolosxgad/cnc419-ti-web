@@ -82,7 +82,7 @@ export async function getStatistics(): Promise<StatisticsResponse> {
  */
 export async function triggerIngest(): Promise<IngestReport> {
   try {
-    const response = await apiClient.post<IngestReport>("/admin/ingest");
+    const response = await apiClient.post<IngestReport>("/threat-intel/ingest");
     return response.data;
   } catch (error) {
     throw new Error(handleAPIError(error));
@@ -90,11 +90,11 @@ export async function triggerIngest(): Promise<IngestReport> {
 }
 
 /**
- * Get feed status
+ * Get feed status (admin only)
  */
-export async function getFeedStatus(): Promise<FetchStatusResponse> {
+export async function getFetchStatus(): Promise<FetchStatusResponse> {
   try {
-    const response = await apiClient.get<FetchStatusResponse>("/admin/fetch-status");
+    const response = await apiClient.get<FetchStatusResponse>("/threat-intel/fetch-status");
     return response.data;
   } catch (error) {
     throw new Error(handleAPIError(error));
