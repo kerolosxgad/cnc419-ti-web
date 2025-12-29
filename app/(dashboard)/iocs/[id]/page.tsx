@@ -37,7 +37,7 @@ export default function IOCDetailPage() {
   const loadIOC = async () => {
     try {
       setLoading(true);
-      const response = await fetchIOC({ id: iocId });
+      const response = await fetchIOC(iocId);
       setIOC(response.ioc);
       loadRelated(response.ioc.id);
     } catch (err: any) {
