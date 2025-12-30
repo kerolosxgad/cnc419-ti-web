@@ -18,10 +18,7 @@ import Cookies from "js-cookie";
  */
 export async function login(data: LoginRequest): Promise<LoginResponse> {
   try {
-    console.log("🔑 Auth service - login called with:", data);
-    console.log("🔑 API Base URL:", apiClient.defaults.baseURL);
     const response = await apiClient.post<LoginResponse>("/auth/login", data);
-    console.log("🔑 Auth service - response:", response.data);
     
     // Store token in cookie (7 days) - ensure it's accessible by the server
     Cookies.set("token", response.data.token, { 
@@ -29,8 +26,6 @@ export async function login(data: LoginRequest): Promise<LoginResponse> {
       path: '/',
       sameSite: 'lax' 
     });
-    
-    console.log("🔑 Token saved to cookie:", Cookies.get("token"));
     
     return response.data;
   } catch (error) {

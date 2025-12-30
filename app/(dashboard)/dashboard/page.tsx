@@ -26,10 +26,7 @@ export default function DashboardPage() {
   const loadDashboardData = async () => {
     try {
       setLoading(true);
-      console.log("📊 Loading dashboard data...");
-      console.log("📊 Token from cookie:", document.cookie);
       const data = await getReportSummary(timeRange);
-      console.log("📊 Dashboard data loaded:", data);
       setReport(data);
     } catch (err: any) {
       console.error("📊 Dashboard error:", err);

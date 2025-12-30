@@ -53,11 +53,9 @@ export async function correlateIOC(iocId: number, lookbackDays: number = 7): Pro
  */
 export async function getReportSummary(timeRange: string = "7d"): Promise<IngestReport> {
   try {
-    console.log("📊 Calling /threat-intel/report-summary...");
     const response = await apiClient.post<IngestReport>("/threat-intel/report-summary", {
       timeRange
     });
-    console.log("📊 Report response:", response.data);
     return response.data;
   } catch (error) {
     console.error("📊 Report error:", error);

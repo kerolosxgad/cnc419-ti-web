@@ -17,18 +17,12 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("🔐 Login clicked");
-    console.log("Form data:", formData);
     setError("");
     setLoading(true);
 
     try {
-      console.log("Calling login API...");
       const response = await login(formData);
-      console.log("Login response:", response);
-      console.log("Saving user to localStorage...");
       saveUser(response.user);
-      console.log("User saved, redirecting to dashboard...");
       
       // Small delay to ensure cookie is set, then redirect
       setTimeout(() => {
