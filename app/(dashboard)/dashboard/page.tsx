@@ -7,7 +7,7 @@ import { SeverityDistributionChart } from "@/components/charts/SeverityDistribut
 import { TypeBreakdownChart } from "@/components/charts/TypeBreakdownChart";
 import { TimeSeriesChart } from "@/components/charts/TimeSeriesChart";
 import { SkeletonCard, SkeletonChart, SkeletonTable } from "@/components/ui/Skeleton";
-import { getReportSummary, getFeedStatus } from "@/services/iocs";
+import { getReportSummary, getFetchStatus } from "@/services/iocs";
 import { IngestReport } from "@/types";
 import { Shield, AlertTriangle, Activity, Database, TrendingUp } from "lucide-react";
 import { formatNumber, formatRelativeTime, getIOCTypeLabel } from "@/utils/helpers";

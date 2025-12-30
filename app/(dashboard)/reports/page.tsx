@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getReportSummary, getFeedStatus } from "@/services/iocs";
+import { getReportSummary, getFetchStatus } from "@/services/iocs";
 import { IngestReport } from "@/types";
 import { SeverityDistributionChart } from "@/components/charts/SeverityDistributionChart";
 import { TypeBreakdownChart } from "@/components/charts/TypeBreakdownChart";
